@@ -1,5 +1,5 @@
 ====================
-visma-dom-orders-rest
+sesam-base64-converter
 ====================
 
 Microservice for fetching orders data from Visma DOM REST API
