@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE IAD.IF.MMO SYSTEM "http://www.finn.no/dtd/IADIF-mmo20.dtd">
+<!--
+24.11.2006 Test sample Geir Borch
+
+-->
+<IAD.IF.MMO>
+	<HEAD>
+		<PARTNER>
+            em1halden    
+		</PARTNER>
+	</HEAD>
+	<OBJECT>
+		<OBJECT_HEAD>
+			<ORDERNO>
+                1234567
+			</ORDERNO>
+		</OBJECT_HEAD>
+		<MO 
+			REF="2695352_1a.gif"
+			PRIORITY ="1"
+			VERSIONID="1"
+			MMO_TYPE="image"
+			REMOVE="no">
+		Stue	
+		</MO>
+		<MO 
+			REF="2695352_2a.gif"
+			PRIORITY ="2"
+			VERSIONID="1"
+			MMO_TYPE="image"
+			REMOVE="no">
+		soverom
+		</MO>
+	</OBJECT>
+</IAD.IF.MMO>

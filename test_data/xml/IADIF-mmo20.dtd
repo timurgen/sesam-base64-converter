@@ -1,0 +1,36 @@
+<!-- DOCTYPE IAD.IF MMO 
+
+Changelogg:
+23.06.2006	Iad-version created			EAS
+
+-->
+<!-- This is a general DTD for sending multimedia objects (e.g. photos)  -->
+<!ELEMENT IAD.IF.MMO (HEAD, OBJECT+)>
+<!-- The element HEAD identifies a partne and a provider -->
+<!ENTITY % HEAD SYSTEM "http://www.finn.no/dtd/IADIF-head20.dtd">
+%HEAD;
+<!-- The element OBJECT consists of a HEAD and if existing information should be overwritten   -->
+<!-- or if transfer whould be ignored   -->
+<!ELEMENT OBJECT (OBJECT_HEAD, OVERWRITE_MMO?, MO*)>
+<!-- OBJECT_HEAD- definition is common in IADIF-objecthead_add20.dtd -->
+<!ENTITY % OBJECT_HEAD SYSTEM "http://www.finn.no/dtd/IADIF-objecthead_add20.dtd">
+%OBJECT_HEAD;
+<!-- Use OVERWRITE_MMO to remove all image before starting to upload new ones -->
+<!ELEMENT OVERWRITE_MMO EMPTY>
+<!ATTLIST OVERWRITE_MMO
+    MODUS (all|images|urls| no) #REQUIRED
+>
+<!-- Graphical elements are represented as multimedia objects               -->
+<!-- The elements has a reference (e.g. filename) and a priority to decide the order    -->
+<!-- by which the elements are presented                        -->
+<!-- legal mmo_types are image , logo , logo_archive , videoviewing , videoviewing_alt_graphic , appraisal_doc , ntf_appraisal_doc , 
+		description_doc , condition_doc , car_condition_doc , car_sales_description , prospect_realestate , regulations_pdf , html_prospect 
+		internal_reference -->
+<!ELEMENT MO (#PCDATA)>
+<!ATTLIST MO
+    REF CDATA #REQUIRED
+    PRIORITY CDATA #IMPLIED
+    VERSIONID CDATA #IMPLIED
+    MMO_TYPE CDATA #REQUIRED
+    REMOVE (yes | no) "no"
+>

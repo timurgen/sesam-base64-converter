@@ -1,0 +1,9 @@
+<!ELEMENT   IAD.IF.ADREVIVE   (HEAD, OBJECT+)>
+
+<!ENTITY % HEAD SYSTEM "http://www.iad.no/dtd/IADIF-head20.dtd">
+%HEAD;
+
+<!ELEMENT	OBJECT (OBJECT_HEAD)>
+<!-- OBJECT_HEAD- definition is common in IADIF-objecthead_add20.dtd -->
+<!ENTITY % OBJECT_HEAD SYSTEM "http://www.iad.no/dtd/IADIF-objecthead_add20.dtd">
+%OBJECT_HEAD;

@@ -1,0 +1,39 @@
+<!-- DOCTYPE IAD.IF Salesinfo Finntech.no 
+
+Changelogg:
+23.06.2006  Created IAD Version 2.0    EAS
+
+-->
+
+<!-- Alle objects marked as SOLD or with BID information in the database	-->
+
+<!ELEMENT	IAD.IF.SALESINFO	(HEAD, OBJECT+)>
+<!-- The element HEAD identifies a partner and a provider -->
+<!ENTITY % HEAD SYSTEM "http://www.finn.no/dtd/IADIF-head20.dtd">
+%HEAD;
+
+<!ELEMENT	OBJECT (OBJECT_HEAD, (SOLD_INFORMATION|BID_INFORMATION))>
+<!-- OBJECT_HEAD- definition is common in IADIF-objecthead_add20.dtd -->
+<!ENTITY % OBJECT_HEAD SYSTEM "http://www.finn.no/dtd/IADIF-objecthead_add20.dtd">
+%OBJECT_HEAD;
+
+<!ELEMENT	SOLD_INFORMATION (SOLD_PRICE?, SOLD_DATE?, BUYER?)>
+<!-- Should the prospect be marked as sold on the net, if not it will not be searcheable from FINN -->
+<!ATTLIST	SOLD_INFORMATION	SHOW	(yes|no)	#REQUIRED>
+<!ATTLIST	SOLD_INFORMATION	SOLD	(yes|no)	"yes"> <!-- if sold is set to "no" salesinformation is removed
+									    from the object -->
+<!ELEMENT	SOLD_PRICE		(#PCDATA)> <!-- Integer < 10 000 000 -->
+<!ELEMENT	SOLD_DATE		(#PCDATA)> <!-- Format DD.MM.YYYY    -->
+<!-- Show the price on the Net? -->
+<!ATTLIST	SOLD_PRICE	SHOWPRICE	(yes|no)	#REQUIRED>
+<!-- Name of buyer -->
+<!ELEMENT	BUYER		(#PCDATA)>
+<!-- BID information -->
+<!-- If only BID.TIME is sent, current BID is assumed to be zero -->
+<!ELEMENT	BID_INFORMATION (BID_TIME, CURRENT_BID? )>
+<!-- Should the prospect be marked with BID activity on the net -->
+<!ATTLIST	BID_INFORMATION	SHOWBIDACTIVITY	(yes|no)	#REQUIRED>
+<!ELEMENT	BID_TIME		(#PCDATA)> <!-- Format DD.MM.YYYY HH.MM (24 hrs)   -->
+<!ELEMENT	CURRENT_BID		(#PCDATA)> <!-- Integer < 10 000 000 -->
+<!-- Show the BID amount on the Net? -->
+<!ATTLIST	CURRENT_BID	SHOWBID	(yes|no)	#REQUIRED>

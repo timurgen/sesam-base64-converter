@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE IAD.IF.STOP SYSTEM "http://www.finn.no/dtd/IADIF-stop30.dtd">
+<IAD.IF.STOP>
+    <HEAD>
+        <PARTNER>
+         elan
+        </PARTNER>
+    </HEAD>
+    <OBJECT>
+		<OBJECT_HEAD>
+         <ORDERNO>
+         10103129
+        </ORDERNO> 
+        </OBJECT_HEAD> 
+    </OBJECT>
+    
+    <OBJECT>
+		<OBJECT_HEAD>
+        <ORDERNO>
+        10104571
+        </ORDERNO>
+		</OBJECT_HEAD>    
+    </OBJECT>
+</IAD.IF.STOP>

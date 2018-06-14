@@ -1,0 +1,66 @@
+<!-- DOCTYPE IAD.IF Objecthead 2.0
+
+Changelogg: 08.06.2006  Version 2.0     EAS
+            04.12.2009  Version 2.1     EAS
+                Added MAP_COORDINATE
+-->
+<!-- Definition of the 'top-element'; A transfer is  -->
+<!-- a IAD-if element with one or more OBJECTs -->
+<!-- Top element -->
+<!-- OBJECT head: Main information on object.  -->
+<!ELEMENT OBJECT_HEAD (ORDERNO, USER_REFERENCE?,PROVIDER_REFERENCE?, OVERWRITE_MMO, VERSIONNO?, FROMDATE?, TODATE?, OBJECT_LOCATION, HEADING?,SEGMENT?)>
+<!-- Should existing MMO (e.g. photos) be overwritten for this object?  -->
+<!-- Multi media objects are sent in a separatate XML file. IAD.IF.MMO  -->
+<!ELEMENT OVERWRITE_MMO EMPTY>
+<!ATTLIST OVERWRITE_MMO
+    MODUS (all|images|urls| no) #REQUIRED
+>
+<!-- ORDERNO is the partner identification of the object -->
+<!ELEMENT ORDERNO (#PCDATA)>
+<!-- Text -->
+<!ATTLIST ORDERNO
+   PREVIEW (yes | no) "no"
+>
+<!-- USER REFERENCE is a unique ID given by the seller -->
+<!ELEMENT USER_REFERENCE (#PCDATA)>
+<!-- PROVIDER REFERENCE is an unique ID given by the provider -->
+<!ELEMENT PROVIDER_REFERENCE (#PCDATA)>
+<!-- Text -->
+<!-- VERSIONNO - tells which version of the object -->
+<!ELEMENT VERSIONNO (#PCDATA)>
+<!-- Positive integer -->
+<!-- Advertisement viewing-time on the internet -->
+<!-- In case both are absent, the information will not be viewable on the internet -->
+<!ELEMENT FROMDATE (#PCDATA)>
+<!-- dd.mm.yyyy -->
+<!ELEMENT TODATE (#PCDATA)>
+<!-- dd.mm.yyyy -->
+<!ELEMENT OBJECT_LOCATION (STREETADDRESS?, ZIPCODE?,COUNTRYCODE?, ADDRESS2?, ADDRESS3?, ADDRESS4?,MAP_COORDINATE?)>
+<!ELEMENT STREETADDRESS (#PCDATA)>
+<!-- Text       -->
+<!ELEMENT ZIPCODE (#PCDATA)>
+<!-- Text   -->
+<!ELEMENT COUNTRYCODE (#PCDATA)>
+<!-- ISO standard 2 letter -->
+<!ELEMENT ADDRESS2 (#PCDATA)>
+<!-- Text e.g. Subtown  -->
+<!ELEMENT ADDRESS3 (#PCDATA)>
+<!-- Text e.g. Town   -->
+<!ELEMENT ADDRESS4 (#PCDATA)>
+<!-- Text  e.g. State -->
+<!ELEMENT HEADING (#PCDATA)>
+<!-- Text max 255 characters-->
+<!ELEMENT SEGMENT EMPTY>
+<!ATTLIST SEGMENT
+   INDICATOR (private|trade) #REQUIRED
+>
+<!ELEMENT MAP_COORDINATE (EASTING,NORTHING,GEO_ACCURACY?)>
+<!ATTLIST MAP_COORDINATE
+   SYSTEM (UTM33|LATLON|UTM32) #REQUIRED
+>
+<!-- Float   -->
+<!ELEMENT EASTING (#PCDATA)>
+<!-- Float   -->
+<!ELEMENT NORTHING (#PCDATA)>
+<!-- ISO standard 2 letter -->
+<!ELEMENT GEO_ACCURACY (#PCDATA)>

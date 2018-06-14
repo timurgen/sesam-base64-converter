@@ -1,0 +1,49 @@
+<!-- DOCTYPE IAD.IF.STATUS Finntech 
+
+Changelogg:
+17.08.2006	Iad-version created			EAS
+-->
+<!ELEMENT IAD.IF.STATUS (HEAD, OBJECT*)>
+<!-- HEAD consists of an identification of a partner -->
+<!ELEMENT HEAD (PARTNER,ORGID?,PROCESSEDTIME)>
+<!ELEMENT PARTNER (#PCDATA)>
+<!ELEMENT ORGID (#PCDATA)>
+<!ELEMENT PROCESSEDTIME (#PCDATA)>
+<!-- The element OBJECT consists of a reference number, 	-->
+<!-- this number is unique for each partner  	 	-->
+<!ELEMENT OBJECT (ADID,AD_TYPE,SOURCE,ORDERNO,VERSION?,EXPIRE_DATE,COUNTER*,ADDON*,MO*)>
+<!-- ADID is the unique id in the iad system -->
+<!ELEMENT ADID (#PCDATA)>
+<!ELEMENT AD_TYPE (#PCDATA)>
+<!ELEMENT SOURCE (#PCDATA)>
+<!-- ORDERNO is the partners own reference number, e.g. internal ID in a backoffice solution -->
+<!ELEMENT ORDERNO (#PCDATA)>
+<!-- VERSION is set by the partner and is not changed by importing system -->
+<!ELEMENT VERSION (#PCDATA)>
+<!-- NO_OF_EMIALS is a the number of emails requested by search agents -->
+<!ELEMENT COUNTER (NO_OF_VIEWINGS?,NO_OF_EMAILS?,NO_OF_GENERAL_EMAILS?)>
+<!ATTLIST COUNTER SITE CDATA #REQUIRED>
+<!-- SITE is the internal name of a website  -->
+<!-- NO_OF_VIEWINGS is the clickrate for the object  -->
+<!ELEMENT NO_OF_VIEWINGS (#PCDATA)>
+<!-- NO_OF_EMAILS is the number of emails requested by search agents -->
+<!ELEMENT NO_OF_EMAILS (#PCDATA)>
+<!-- NO_OF_GENERAL_EMAILS is the number of contactemails for the advertiser -->
+<!ELEMENT NO_OF_GENERAL_EMAILS (#PCDATA)>
+<!-- EXPIRE_DATE is the date when the object will become offline, might be in the past -->
+<!ELEMENT EXPIRE_DATE (#PCDATA)>
+<!ELEMENT	ADDON (KEY,VALUE?,REFERENCE?)>
+<!ELEMENT	KEY		(#PCDATA)> <!-- Defining the addon -->
+<!ELEMENT	VALUE		(#PCDATA)> <!-- Any Value if needed    -->
+<!ELEMENT	REFERENCE		(#PCDATA)> <!-- Any reference if needed  -->
+<!ELEMENT MO (IMAGENAME, PRIORITY,VERSION?)>
+<!ATTLIST MO
+    MAIN (true | false) #REQUIRED
+    MMO_TYPE (image | logo | logo_archive | videoviewing | videoviewing_alt_graphic | appraisal_doc | ntf_appraisal_doc | description_doc | condition_doc | car_condition_doc | car_sales_description | prospect_realestate | regulations_pdf | html_prospect) #REQUIRED
+>
+<!-- IMAGENAME is the partners name on the image -->
+<!ELEMENT IMAGENAME (#PCDATA)>
+<!-- IMAGENAME is the partners name on the image -->
+<!ELEMENT PRIORITY (#PCDATA)>
+<!-- VERSIONID is set by the partner and is not changed by importing system -->
+<!ELEMENT VERSIONID (#PCDATA)>

@@ -1,0 +1,92 @@
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by eiv (finntech.com) -->
+<!-- DOCTYPE IAD.IF Van_truck FinnTech
+
+Changelogg:
+
+03.03.2004	Initial version	
+23.06.2004	New version based on change request #1	-->
+<!-- Definition of the 'top-element'; A transfer is  -->
+<!-- a IAD-if element with one or more OBJECTs -->
+<!-- Top element -->
+<!ELEMENT IAD.IF.VAN_TRUCK (HEAD, OBJECT+)>
+<!-- The element HEAD identifies a partne and a provider -->
+<!ENTITY % HEAD SYSTEM "http://www.finn.no/dtd/IADIF-head20.dtd">
+%HEAD;
+<!-- Information on the object -->
+<!ELEMENT OBJECT (OBJECT_HEAD, VAN_TRUCK)>
+<!-- OBJECT_HEAD- definition is common in IADIF-objecthead20.dtd -->
+<!ENTITY % OBJECT_HEAD SYSTEM "http://www.finn.no/dtd/IADIF-objecthead20.dtd">
+%OBJECT_HEAD;
+<!-- Information on van or truck -->
+<!ELEMENT VAN_TRUCK (VAN_SEGMENT, VAN_MODEL, YEAR_MODEL?, MILEAGE?, MOTOR_PRICE?, ENGINE?, WEIGHT?, 
+			REGISTRATION_FIRST?, NO_OF_SEATS?, VAN_EQUIPMENT?, LENGTH_CM?, TRANSMISSION_DESCRIPTION?,
+			CABIN_TYPE?, PERMITTED_LOAD?, REGNO?, SUSPENSION_FRONT?, SUSPENSION_REAR?, 
+			CHASSIS_NO?, BOX_LENGTH?, INTERIOR_MEASUREMENTS?, DESCRIPTION?, MOREINFO*, CONTACT?)>
+<!-- Van van_segment -->
+<!ELEMENT VAN_SEGMENT (#PCDATA)>
+<!-- Van make/model -->
+<!ELEMENT VAN_MODEL (MAKE, MODEL)>
+<!ELEMENT MAKE (#PCDATA)>
+<!-- Legal value -->
+<!ELEMENT MODEL (#PCDATA)>
+<!-- TLegal value -->
+<!ELEMENT YEAR_MODEL (#PCDATA)>
+<!-- 4 digits -->
+<!ELEMENT MILEAGE (#PCDATA)>
+<!-- Integer < 100 000 000 -->
+<!-- Price information -->
+<!ELEMENT MOTOR_PRICE (TOTAL, CURRENCY?)>
+<!ELEMENT TOTAL (#PCDATA)>
+<!-- Integer < 10 000 000 -->
+<!ELEMENT CURRENCY (#PCDATA)>
+<!-- Currency for all prices ISO 3 letter code eg. NOK -->
+<!-- Engine -->
+<!ELEMENT ENGINE (EFFECT?, VOLUME?, FUEL)>
+<!ELEMENT EFFECT (#PCDATA)>
+<!-- Text 100 characters -->
+<!ELEMENT VOLUME (#PCDATA)>
+<!-- Numbers with . as decimal -->
+<!ELEMENT FUEL (#PCDATA)>
+<!-- legal values  e.g. diesel-->
+<!ELEMENT WEIGHT (#PCDATA)>
+<!-- total weight of vehicle-->
+<!ELEMENT REGISTRATION_FIRST (#PCDATA)>
+<!-- registration date of vehicle-->
+<!ELEMENT NO_OF_SEATS (#PCDATA)>
+<!ELEMENT VAN_EQUIPMENT (#PCDATA)>
+<!-- list of legal values -->
+<!ELEMENT LENGTH_CM (#PCDATA)>
+<!ELEMENT TRANSMISSION_DESCRIPTION (#PCDATA)>
+<!ELEMENT CABIN_TYPE (#PCDATA)>
+<!-- list of legal values -->
+<!ELEMENT PERMITTED_LOAD (#PCDATA)>
+<!ELEMENT REGNO (#PCDATA)>
+<!ELEMENT SUSPENSION_FRONT (#PCDATA)>
+<!ELEMENT SUSPENSION_REAR (#PCDATA)>
+<!-- type of suspension front and rear, list of legal values -->
+<!ELEMENT CHASSIS_NO (#PCDATA)>
+<!ELEMENT BOX_LENGTH (#PCDATA)>
+<!ELEMENT INTERIOR_MEASUREMENTS (LENGTH?, WIDTH?, HEIGHT?)>
+<!ELEMENT LENGTH (#PCDATA)>
+<!ELEMENT WIDTH  (#PCDATA)>
+<!ELEMENT HEIGHT (#PCDATA)>
+<!ELEMENT DESCRIPTION (#PCDATA)>
+<!-- General description of car -->
+<!ELEMENT MOREINFO (URL, URLTEXT?)>
+<!ELEMENT URLTEXT (#PCDATA)>
+<!-- Used for external links -->
+<!-- Information on CONTACT -->
+<!ELEMENT CONTACT (NAME?, PHONE?, MOBILE?, EMAIL?, FAX?, URL?)>
+<!ATTLIST CONTACT PHONESALESRESERVATION (yes|no) "no">
+<!ELEMENT NAME (#PCDATA)>
+<!-- Text max 100 characters -->
+<!ELEMENT PHONE (#PCDATA)>
+<!-- Text max 100 characters -->
+<!ELEMENT MOBILE (#PCDATA)>
+<!-- Text max 100 characters -->
+<!ELEMENT EMAIL (#PCDATA)>
+<!-- Text max 100 characters -->
+<!ELEMENT FAX (#PCDATA)>
+<!-- Text max 100 characters -->
+<!ELEMENT URL (#PCDATA)>
+<!-- Text max 100 characters -->

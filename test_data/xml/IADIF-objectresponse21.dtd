@@ -1,0 +1,58 @@
+<!-- DOCTYPE IAD.IF objectresponse Finntech 
+
+Changelogg:
+23.06.2006	Iad-version created			EAS
+21.02.2008	Added systemreference		EAS
+-->
+<!-- All objects are unique identified by partner + orderno -->
+<!ELEMENT IAD.IF.OBJECTRESPONSE (HEAD, OBJECT*,FILESTATUS)>
+<!-- HEAD consists of an identification of a partner -->
+<!ELEMENT HEAD (PARTNER,PROVIDER?,UPLOAD_REFERENCE?,IMPORTTYPE,PROCESSEDTIME,SOURCE?)>
+<!ELEMENT PARTNER (#PCDATA)>
+<!ELEMENT PROVIDER (#PCDATA)>
+<!ELEMENT UPLOAD_REFERENCE (#PCDATA)>
+<!ELEMENT IMPORTTYPE (#PCDATA)>
+<!ELEMENT PROCESSEDTIME (#PCDATA)>
+<!ELEMENT SOURCE (#PCDATA)>
+<!-- The element OBJECT consists of a reference number, 	-->
+<!-- this number is unique for each partner  	 	-->
+<!ELEMENT OBJECT (ORDERNO,VERSION?,USERREFERENCE?,SYSTEMREFERENCE?,ERRORMESSAGE*,IMAGE*,URL?)>
+<!ATTLIST OBJECT
+	STATUS (ok | fault) #REQUIRED
+>
+<!-- ORDERNO is the partners own reference number, e.g. internal ID in a backoffice solution -->
+<!ELEMENT ORDERNO (#PCDATA)>
+<!-- VERSION is set by the partner and is not changed by importing system -->
+<!ELEMENT VERSION (#PCDATA)>
+<!-- USERREFERENCE is a reference for the partner, allow not unique references -->
+<!ELEMENT USERREFERENCE (#PCDATA)>
+<!-- SYSTEMREFERENCE is a unique reference within the iad platform -->
+<!ELEMENT SYSTEMREFERENCE (#PCDATA)>
+<!-- ERRORMESSAGE returns errormessages,warnings and infomessages -->
+<!ELEMENT ERRORMESSAGE (ELEMENTNAME, VALUE?,MESSAGE)>
+<!ATTLIST ERRORMESSAGE
+	ERRORLEVEL (fatal | error | warning | info) #REQUIRED
+>
+<!ELEMENT ELEMENTNAME (#PCDATA)>
+<!ELEMENT VALUE (#PCDATA)>
+<!ELEMENT MESSAGE (#PCDATA)>
+
+<!ELEMENT IMAGE (IMAGENAME, IMAGEMESSAGE?)>
+<!ATTLIST IMAGE
+	STATUS (ok | fault) #REQUIRED
+>
+<!-- IMAGENAME is the partners name on the image -->
+<!ELEMENT IMAGENAME (#PCDATA)>
+<!ELEMENT IMAGEMESSAGE (#PCDATA)>
+<!-- URL is a direct link to the object on the website -->
+<!ELEMENT URL (#PCDATA)>
+<!-- HEAD consists of an identification of a partner -->
+<!ELEMENT FILESTATUS (PARSEMESSAGE*)>
+<!ATTLIST FILESTATUS
+    PARSESTATUS (ok | fault) #REQUIRED
+    NUMBEROFOBJECTS  CDATA  #IMPLIED
+>
+<!ELEMENT PARSEMESSAGE (#PCDATA)>
+<!ATTLIST PARSEMESSAGE
+	ERRORLEVEL (fatalerror | error | warning) #REQUIRED
+>

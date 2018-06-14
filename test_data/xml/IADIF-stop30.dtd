@@ -1,0 +1,21 @@
+<!-- DOCTYPE IAD.IF stop Finntech.no                                  
+
+Changelogg:
+
+
+-->
+
+<!-- All objects identified by the either PARTNER + ORDERNO or
+PROVIDER + PROVIDER_REF will no longer be searchable from the FINN site
+ -->
+
+<!ELEMENT	IAD.IF.STOP	(HEAD, OBJECT+,PRODUCT?)>
+<!-- The element HEAD identifies a partner and a provider -->
+<!ENTITY % HEAD SYSTEM "http://www.iad.no/dtd/IADIF-head20.dtd">
+%HEAD;
+<!-- The element OBJECT consists of a orderno or a provider_ref   -->
+<!ELEMENT OBJECT (OBJECT_HEAD)>
+<!-- OBJECT_HEAD- definition is common in IADIF-objecthead_add20.dtd -->
+<!ENTITY % OBJECT_HEAD SYSTEM "http://www.iad.no/dtd/IADIF-objecthead_add20.dtd">
+%OBJECT_HEAD;
+<!ELEMENT   PRODUCT (#PCDATA)> <!-- Enter the product, ie AD_SELECTION, ad is default -->
