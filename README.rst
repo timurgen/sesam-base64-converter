@@ -14,7 +14,9 @@ example configuration
       "_id": "testbase64",
       "type": "system:microservice",
       "docker": {
-        "environment": {},
+        "environment": {
+            "PAYLOAD_PROPERTY": "entities"
+        },
         "image": "ohuenno/base64sesam",
         "port": 5000
       }
