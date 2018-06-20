@@ -26,10 +26,22 @@ def encode_payload():
     if not payload_to_convert:
         abort(500)
 
-    return Response(
-        generate_json(encode(payload_to_convert.get(PAYLOAD_PROPERTY).encode("utf-8"))),
-        mimetype='application/json'
-    )
+    if isinstance(payload_to_convert, dict):
+        return Response(
+            generate_json(encode(payload_to_convert.get(PAYLOAD_PROPERTY).encode("utf-8"))),
+            mimetype='application/json'
+        )
+    if isinstance(payload_to_convert, list):
+        i = 0
+        while i < len(payload_to_convert):
+            payload_to_convert[i] = encode(payload_to_convert[i].encode("utf-8")).decode("utf-8")
+            i += 1
+        print(payload_to_convert)
+        return Response(
+            json.dumps(payload_to_convert),
+            mimetype='application/json'
+        )
+    abort(415)
 
 
 def generate_json(data):
