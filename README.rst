@@ -1,6 +1,10 @@
+DEPRECATED: this functionality now covered by Sesam DTL
+
 ====================
 sesam-base64-converter
 ====================
+
+
 
 Microservice for converting anything to base64 and return back
 
